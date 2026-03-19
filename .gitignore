@@ -1,5 +1,3 @@
 main
-obj/
-bin/
-*.make
 *.txt
+.clangd
