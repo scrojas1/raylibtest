@@ -14,19 +14,19 @@ Camera3D initCamera(){
 
 }
 
-double theta = 0;
+float theta = 0;
 float radius = 10;
 Vector3 center = {0,0,0};
+float height = 0;
 
 void handleCamera(Camera3D *camera){
    
   //move camera position
-  Vector3 movement = {0.0f, 0.0f, 0.0f};
   if(IsKeyDown(KEY_W)){
-    movement.y += 0.1;
+    height += 0.2f;
   }
   if (IsKeyDown(KEY_S)) {
-    movement.y -= 0.1f;
+    height -= 0.2f;
   }
   if (IsKeyDown(KEY_D)) {
     theta += 0.1f;
@@ -38,8 +38,8 @@ void handleCamera(Camera3D *camera){
 
   camera->position.x = center.x + radius*cos(theta);
   camera->position.z = center.z + radius*sin(theta); 
-  camera->position = Vector3Add(camera->position, movement); 
-  
+  camera->position.y = height;
+  camera->target = center;
 
 }
 
