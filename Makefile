@@ -48,9 +48,15 @@ ifneq (,$(raylibtest_config))
 	@${MAKE} --no-print-directory -C . -f raylibtest.make config=$(raylibtest_config)
 endif
 
+raylib:
+ifneq (,$(raylib_config))
+	@echo "==== Building raylib ($(raylib_config)) ===="
+	@${MAKE} --no-print-directory -C . -f raylib.make config=$(raylib_config)
+endif
 
 clean:
 	@${MAKE} --no-print-directory -C . -f raylibtest.make clean
+	@${MAKE} --no-print-directory -C . -f raylib.make clean
 
 help:
 	@echo "Usage: make [config=name] [target]"

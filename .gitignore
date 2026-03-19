@@ -2,4 +2,4 @@ main
 obj/
 bin/
 *.make
-
+*.txt
