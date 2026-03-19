@@ -22,7 +22,6 @@ float height = 10.0f;
 
 void handleCamera(Camera3D *camera){
    
-  //move camera position
   if(IsKeyDown(KEY_W)){
     height += 0.2f;
   }

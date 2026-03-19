@@ -1,4 +1,4 @@
-#include "particle.h"
+#include "object.h"
 #include <stdio.h>
 
 struct Object initBall(int posX, int posY, int radius) {
