@@ -25,13 +25,13 @@ void handleCamera(Camera3D *camera){
   if(IsKeyDown(KEY_W)){
     movement.y += 0.1;
   }
-  else if (IsKeyDown(KEY_S)) {
+  if (IsKeyDown(KEY_S)) {
     movement.y -= 0.1f;
   }
-  else if (IsKeyDown(KEY_D)) {
+  if (IsKeyDown(KEY_D)) {
     theta += 0.1f;
   }
-  else if (IsKeyDown(KEY_A)) {
+  if (IsKeyDown(KEY_A)) {
     theta -= 0.1f;
   }
    
