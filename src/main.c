@@ -72,7 +72,8 @@ struct Object initBall(int posX, int posY, int radius) {
 }
 
 void handleCamera(Camera3D *camera){
-    
+   
+  //move camera position
   Vector3 movement = {0.0f, 0.0f, 0.0f};
   if(IsKeyDown(KEY_UP)){
     movement.y += 0.1;
@@ -87,6 +88,10 @@ void handleCamera(Camera3D *camera){
     movement.x -= 0.1f;
   }
   camera->position = Vector3Add(camera->position, movement); 
+
+  //move camera target
+
+  //TODO: fix target = cursor, movement should be relative to target vector
 }
 
 
