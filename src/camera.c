@@ -1,4 +1,5 @@
 #include "camera.h"
+#include "raylib.h"
 
 
 Camera3D initCamera(){
@@ -15,9 +16,9 @@ Camera3D initCamera(){
 }
 
 float theta = 0;
-float radius = 10;
+float radius = 10.0f;
 Vector3 center = {0,0,0};
-float height = 0;
+float height = 10.0f;
 
 void handleCamera(Camera3D *camera){
    
@@ -35,10 +36,15 @@ void handleCamera(Camera3D *camera){
     theta -= 0.1f;
   }
    
-
+  if(theta > 2*PI){
+    theta -= 2*PI;
+  }
+  if(theta < 0){
+    theta += 2*PI;
+  }
   camera->position.x = center.x + radius*cos(theta);
   camera->position.z = center.z + radius*sin(theta); 
-  camera->position.y = height;
+  camera->position.y = center.y + height;
   camera->target = center;
 
 }
