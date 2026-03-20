@@ -7,7 +7,6 @@
 #define SCREENWIDTH 800
 #define SCREENHEIGHT 450
 
-void handleInput(struct Object *);
 
 int main(void) {
 
@@ -17,6 +16,8 @@ int main(void) {
 
   Camera3D camera = initCamera();
 
+  struct Sphere sphere = initSphere((Vector3){0,1,0}, 1, GREEN);
+
   while (!WindowShouldClose()) {
 
     handleCamera(&camera);
@@ -24,8 +25,7 @@ int main(void) {
     BeginDrawing();
     ClearBackground(GRAY);
     BeginMode3D(camera);
-
-    DrawSphere((Vector3){0.0f, 1.0f, 0.0f}, 1, RED);
+    DrawSphere(sphere.position, sphere.radius, sphere.color);
     DrawGrid(10, 1.0f);
    
     EndMode3D();

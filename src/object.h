@@ -2,14 +2,14 @@
 #include <raylib.h>
 #include <raymath.h>
 
-struct Object {
-  float x;
-  float y;
-  int direction;
-  float acceleration;
-  const int radius;
+struct Sphere {
+  Vector3 position;
+  Vector3 velocity;
+  Vector3 acceleration;
+  float radius;
+  Color color;
 };
 
-struct Object initBall(int posX, int posY, int radius);
+struct Sphere initSphere(Vector3 position, float radius, Color color);
 
-void handleInput(struct Object *obj);
+void handleInput(struct Sphere *obj);

@@ -1,26 +1,22 @@
 #include "object.h"
+#include "raylib.h"
 #include <stdio.h>
 
-struct Object initBall(int posX, int posY, int radius) {
+struct Sphere initSphere(Vector3 position, float radius, Color color){
 
-  struct Object ball = {
-      .x = posX,
-      .y = posY,
-      .direction = 1,
-      .acceleration = 1,
-      .radius = radius,
+  struct Sphere sphere = {
+
+    .position = position,
+    .velocity = {0,0,0},
+    .acceleration = {0,0,0},
+    .color = color,
+    .radius = radius,
+
   };
 
-  return ball;
+  return sphere;
 }
 
-void handleInput(struct Object *obj) {
+void handleInput(struct Sphere *sphere) {
 
-  if (IsKeyDown(KEY_UP)) {
-    obj->acceleration += 0.1;
-    printf("Acceleration: %f\n", obj->acceleration);
-  } else if (IsKeyDown(KEY_DOWN)) {
-    obj->acceleration -= 0.1;
-    printf("Acceleration: %f\n", obj->acceleration);
-  }
 }
