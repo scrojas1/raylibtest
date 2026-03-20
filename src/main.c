@@ -25,7 +25,7 @@ int main(void) {
     BeginDrawing();
     ClearBackground(GRAY);
     BeginMode3D(camera);
-    DrawSphere(sphere.position, sphere.radius, sphere.color);
+    drawSphereObject(&sphere);
     DrawGrid(10, 1.0f);
    
     EndMode3D();

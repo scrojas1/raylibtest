@@ -17,6 +17,12 @@ struct Sphere initSphere(Vector3 position, float radius, Color color){
   return sphere;
 }
 
+void drawSphereObject(const struct Sphere *sphere){
+  
+  DrawSphere(sphere->position, sphere->radius, sphere->color);
+
+}
+
 void handleInput(struct Sphere *sphere) {
 
 }
