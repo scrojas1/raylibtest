@@ -31,7 +31,11 @@ int main(void) {
       sphere.position.y = 0 + sphere.radius;
       sphere.velocity.y = -sphere.velocity.y;
     }
-
+    if(IsKeyPressed(KEY_SPACE)){
+      sphere.position.y = 20;
+      sphere.velocity.y = 0;
+      sphere.acceleration.y = 0; 
+    }
     BeginDrawing();
     ClearBackground(GRAY);
     BeginMode3D(camera);
