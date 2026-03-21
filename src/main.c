@@ -3,6 +3,7 @@
 
 #include "camera.h"
 #include "object.h"
+#include "physics.h"
 
 #define SCREENWIDTH 800
 #define SCREENHEIGHT 450
@@ -17,15 +18,17 @@ int main(void) {
   
   Camera3D camera = initCamera();
 
-  struct Sphere sphere = initSphere((Vector3){0,1,0}, 1, RED);
+  struct Sphere sphere = initSphere((Vector3){0,10,0}, 1, RED);
   sphere.velocity = (Vector3){0,1,0};
 
   while (!WindowShouldClose()) {
 
     float dt = GetFrameTime();
     handleCamera(&camera);
+    sphere.velocity = (Vector3){0,0,0};
+    applyGravity(&sphere);
     updateSphere(&sphere, dt);
-
+  
     BeginDrawing();
     ClearBackground(GRAY);
     BeginMode3D(camera);
