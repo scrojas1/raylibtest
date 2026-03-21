@@ -23,6 +23,17 @@ void drawSphereObject(const struct Sphere *sphere){
 
 }
 
+void updateSphere(struct Sphere *sphere, float dt){
+  sphere->velocity.x += sphere->acceleration.x*dt;
+  sphere->velocity.y += sphere->acceleration.y*dt;
+  sphere->velocity.z += sphere->acceleration.z*dt;
+
+  sphere->position.x += sphere->velocity.x*dt;
+  sphere->position.y += sphere->velocity.y*dt;
+  sphere->position.z += sphere->velocity.z*dt;
+
+}
+
 void handleInput(struct Sphere *sphere) {
 
 }

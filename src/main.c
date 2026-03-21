@@ -7,20 +7,24 @@
 #define SCREENWIDTH 800
 #define SCREENHEIGHT 450
 
+#define FPS 60
 
 int main(void) {
 
   InitWindow(SCREENWIDTH, SCREENHEIGHT, "raylib test");
 
-  SetTargetFPS(60);
-
+  SetTargetFPS(FPS);
+  
   Camera3D camera = initCamera();
 
-  struct Sphere sphere = initSphere((Vector3){0,1,0}, 1, GREEN);
+  struct Sphere sphere = initSphere((Vector3){0,1,0}, 1, RED);
+  sphere.velocity = (Vector3){0,1,0};
 
   while (!WindowShouldClose()) {
 
+    float dt = GetFrameTime();
     handleCamera(&camera);
+    updateSphere(&sphere, dt);
 
     BeginDrawing();
     ClearBackground(GRAY);

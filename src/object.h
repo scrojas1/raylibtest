@@ -13,4 +13,5 @@ struct Sphere {
 struct Sphere initSphere(Vector3 position, float radius, Color color);
 
 void drawSphereObject(const struct Sphere *sphere);
+void updateSphere(struct Sphere *sphere, float dt);
 void handleInput(struct Sphere *sphere);
