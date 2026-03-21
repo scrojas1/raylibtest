@@ -1,6 +1,6 @@
 #include <raylib.h>
 #include <raymath.h>
-
+#include <stdio.h>
 #include "camera.h"
 #include "object.h"
 #include "physics.h"
@@ -18,17 +18,20 @@ int main(void) {
   
   Camera3D camera = initCamera();
 
-  struct Sphere sphere = initSphere((Vector3){0,10,0}, 1, RED);
-  sphere.velocity = (Vector3){0,1,0};
+  struct Sphere sphere = initSphere((Vector3){0,30,0}, 1, RED);
+  sphere.velocity = (Vector3){0,-10,0};
 
   while (!WindowShouldClose()) {
 
     float dt = GetFrameTime();
     handleCamera(&camera);
-    sphere.velocity = (Vector3){0,0,0};
     applyGravity(&sphere);
     updateSphere(&sphere, dt);
-  
+    if(sphere.position.y - sphere.radius <= 0 && sphere.velocity.y < 0){
+      sphere.position.y = 0 + sphere.radius;
+      sphere.velocity.y = -sphere.velocity.y;
+    }
+
     BeginDrawing();
     ClearBackground(GRAY);
     BeginMode3D(camera);
